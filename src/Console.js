@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import SideNav from './SideNav';
+import ProjectOverview from './ProjectOverview';
 import ResultsBox from './ResultsBox';
+import Users from './Users';
+import Trends from './Trends';
 import Style from './style';
 
 class Console extends Component {
@@ -11,6 +14,15 @@ class Console extends Component {
     this.state = {
       selection: 0,
     }
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(num) {
+    //console.log(num);
+    this.setState({
+      selection: num
+    });
   }
 
   render() {
@@ -19,9 +31,22 @@ class Console extends Component {
         <Header/>
         <div style={Style.pane}>
           <div style={Style.sideBar}>
-            <SideNav/>
+            <SideNav onClick={this.onClick}/>
           </div>
-
+          <div style={Style.canvas}>
+            {this.state.selection == 0 &&
+              <ProjectOverview/>
+            }
+            {this.state.selection == 1 &&
+              <ResultsBox url='http://localhost:3001/api/results' pollInterval={1000} />
+            }
+            {this.state.selection == 2 &&
+              <Users/>
+            }
+            {this.state.selection == 3 &&
+              <Trends/>
+            }
+          </div>
         </div>
       </span>
     )

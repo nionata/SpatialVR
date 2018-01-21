@@ -55,7 +55,7 @@ router.route('/results')
   .post(function(req, res) {
     var result = new Result();
     (req.body.avgTime) ? result.avgTime = req.body.avgTime : null;
-    (req.body.time) ? result.time = req.body.time : null;
+    (req.body.avgTime) ? result.time = Date.now() : null;
     (req.body.uid) ? result.uid = req.body.uid : null;
 
     result.save(function(err) {

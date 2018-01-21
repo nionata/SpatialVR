@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ResultsList from './ResultsList';
-import Header from './Header';
 import style from './style';
 class ResultsBox extends Component {
   constructor(props) {
@@ -17,9 +16,11 @@ class ResultsBox extends Component {
 
   loadCommentsFromServer() {
     axios.get(this.props.url).then(res => {
-      this.setState({ data: res.data });
+      var newData = res.data.sort(function(a, b) {
+        return b.time - a.time;
+      });
 
-      console.log(this.state.data);
+      this.setState({ data: newData });
     })
   }
 
@@ -27,7 +28,7 @@ class ResultsBox extends Component {
     this.loadCommentsFromServer();
 
     if (!this.pollInterval) {
-      //this.pollInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval)
+      this.pollInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval)
     }
   }
 
@@ -40,11 +41,9 @@ class ResultsBox extends Component {
     console.log("Result box loaded")
     return (
       <div>
-        <Header/>
-        <div style={style.commentBox}>
-          <h2>Results:</h2>
-          <ResultsList data={this.state.data}/>
-        </div>
+        <h2 style={style.primaryText}>Data Feed</h2>
+        <hr/>
+        <ResultsList data={this.state.data}/>
       </div>
     )
   }

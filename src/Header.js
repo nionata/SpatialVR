@@ -19,7 +19,6 @@ class Header extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Navbar.Text className='external-nav-link' pullRight>
-            <a href="https://github.com/nionata/SwampHacks2018" target="blank">Github</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
