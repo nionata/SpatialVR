@@ -44,7 +44,7 @@ class Console extends Component {
               <UsersBox url='http://localhost:3001/api/results' pollInterval={10000} />
             }
             {this.state.selection == 3 &&
-              <Trends/>
+              <Trends url='http://localhost:3001/api/results' pollInterval={1000}/>
             }
           </div>
         </div>
