@@ -4,11 +4,27 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Result = require('./model/results');
+var io = require('socket.io')();
 
+//Socket Server
+io.on('connection', (client) => {
+  client.on('subscribeToResults', (interval) => {
+    console.log('client is subscribing to timer with interval ', interval);
+    setInterval(() => {
+      client.emit('timer', new Date());
+    }, interval);
+  });
+});
+
+const socketPort = 8000;
+io.listen(socketPort);
+console.log('socket listening on port ', socketPort);
+
+//RESTful API
 var app = express();
 var router = express.Router();
 
-var port = process.env.API_PORT || 3001;
+var restPort = process.env.API_PORT || 3001;
 
 mongoose.connect('mongodb://Albert:dragonflie@ds111138.mlab.com:11138/swamphacks2018')
 
@@ -51,6 +67,6 @@ router.route('/results')
 
 app.use('/api', router);
 
-app.listen(port, function() {
- console.log('Api running on port ' + port);
+app.listen(restPort, function() {
+ console.log('rest api running on port ', restPort);
 });
