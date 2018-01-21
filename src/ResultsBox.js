@@ -12,7 +12,11 @@ class ResultsBox extends Component {
   }
 
   componentDidMount() {
-    //Add socket
+    axios.get(this.props.url).then(res => {
+      this.setState({ data: res.data });
+
+      console.log(this.state.data);
+    })
   }
 
   render() {

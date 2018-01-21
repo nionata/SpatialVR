@@ -5,6 +5,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <ResultsBox
-    url='http://localhost:3001/api/comments'
+    url='http://localhost:3001/api/results'
   />, document.getElementById('root'));
 registerServiceWorker();

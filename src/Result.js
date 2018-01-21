@@ -6,10 +6,10 @@ class Result extends Component {
     const {avgTime, time, uid, tid} = this.props;
     return (
       <div style={style.comment}>
-        <span>{avgTime}</span>
-        <span>{time}</span>
-        <span>{uid}</span>
-        <span>{tid}</span>
+        <span>Average time: {avgTime}</span><br/>
+        <span>Time: {time}</span><br/>
+        <span>UID: {uid}</span><br/>
+        <span>TID: {tid}</span><br/>
       </div>
     )
   }

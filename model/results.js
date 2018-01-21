@@ -7,7 +7,6 @@ var ResultsSchema = new Schema({
   avgTime: Number,
   time: Number,
   uid: Number,
-  tid: Number,
 });
 
 module.exports = mongoose.model('Result', ResultsSchema);

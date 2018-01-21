@@ -14,7 +14,7 @@ let commentNodes = this.props.data.map(comment => {
       <div style={style.commentList}>
         {this.props.data.map(result => {
           return (
-            <Result avgTime={result.avgTime} time={result.time} uid={result.uid} tid={result.tid} key={result.tid} />
+            <Result avgTime={result.avgTime} time={result.time} uid={result.uid} tid={result["_id"]} key={result["_id"]} />
           )
         })}
       </div>

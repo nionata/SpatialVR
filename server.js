@@ -41,7 +41,6 @@ router.route('/results')
     (req.body.avgTime) ? result.avgTime = req.body.avgTime : null;
     (req.body.time) ? result.time = req.body.time : null;
     (req.body.uid) ? result.uid = req.body.uid : null;
-    (req.body.tid) ? result.tid = req.body["_id"] : null;
 
     result.save(function(err) {
       if (err)
