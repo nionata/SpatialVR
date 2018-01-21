@@ -3,7 +3,7 @@ import Header from './Header';
 import SideNav from './SideNav';
 import ProjectOverview from './ProjectOverview';
 import ResultsBox from './ResultsBox';
-import Users from './Users';
+import UsersBox from './UsersBox';
 import Trends from './Trends';
 import Style from './style';
 
@@ -41,7 +41,7 @@ class Console extends Component {
               <ResultsBox url='http://localhost:3001/api/results' pollInterval={1000} />
             }
             {this.state.selection == 2 &&
-              <Users/>
+              <UsersBox url='http://localhost:3001/api/results' pollInterval={10000} />
             }
             {this.state.selection == 3 &&
               <Trends/>

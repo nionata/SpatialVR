@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ResultsList from './ResultsList';
+import User from './User';
 import style from './style';
-class ResultsBox extends Component {
+class UsersBox extends Component {
   constructor(props) {
     super(props);
 
@@ -25,8 +25,10 @@ class ResultsBox extends Component {
   }
 
   componentDidMount() {
-    console.log("Results box did mount");
+    console.log("User box did mount");
     this.loadCommentsFromServer();
+
+    
 
     if (!this.pollInterval) {
       this.pollInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval)
@@ -34,20 +36,26 @@ class ResultsBox extends Component {
   }
 
   componentWillUnmount() {
-    console.log("Results box will unmount");
+    console.log("User box will unmount");
     this.pollInterval && clearInterval(this.pollInterval);
   }
 
 
   render() {
-    console.log("Result box loaded")
+    console.log("User box loaded")
     return (
       <div>
-        <h2 style={style.primaryText}>Data Feed</h2>
+        <h2 style={style.primaryText}>Users</h2>
         <hr/>
-        <ResultsList data={this.state.data}/>
+        <div style={style.commentList}>
+          {this.state.data.map(result => {
+            return (
+              <User avgTime={result.avgTime} time={result.time} uid={result.uid} tid={result["_id"]} key={result["_id"]} />
+            )
+          })}
+        </div>
       </div>
     )
   }
 }
-export default ResultsBox;
+export default UsersBox;
