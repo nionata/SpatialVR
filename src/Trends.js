@@ -11,7 +11,10 @@ class Trends extends Component {
     super(props);
 
     this.state = {
-      data: []
+      data: [],
+      g20: 0,
+      t60: 0,
+      g60: 0,
     };
 
     this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
@@ -25,6 +28,21 @@ class Trends extends Component {
 
       oldData = res.data.filter(function(result) {
         if(result.age > 0) {
+
+          if(result.age < 20) {
+            this.setState({
+              "g20": this.state.g20 + 1
+            });
+          } else if(result.age < 60) {
+            this.setState({
+              "t60": this.state.t60 + 1
+            });
+          } else {
+            this.setState({
+              "g60": this.state.g60 + 1
+            });
+          }
+
           newData.push({
             "uid": result.uid,
             "age": result.age,
@@ -35,7 +53,7 @@ class Trends extends Component {
         }
 
         return result.age <= 0
-      });
+      }.bind(this));
       //console.log(newData);
       //console.log(oldData);
 
@@ -56,7 +74,7 @@ class Trends extends Component {
     this.loadCommentsFromServer();
 
     if (!this.pollInterval) {
-      //this.pollInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval)
+      this.pollInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval)
     }
   }
 
@@ -87,11 +105,25 @@ class Trends extends Component {
             }
           </YAxis>
         </HighchartsChart>
+        <hr/>
         <HighchartsChart>
           <Chart />
           <Title>Breakdown of Age</Title>
-          <Legend />
-          <PieSeries id="total-users" name="User" data={[{name: "ben", y: 10}, {name: "susan", y: 80}]} center={[525, 100]} size={200} showInLegend={false} />
+          <Legend layout="vertical" align="right" verticalAlign="middle" />
+          <PieSeries id="total-users" name="User" data={[
+            {
+              name: "<20",
+              y: this.state.g20,
+            },
+            {
+              name: "20-60",
+              y: this.state.t60,
+            },
+            {
+              name: ">60",
+              y: this.state.g60,
+            },
+          ]} center={[525, 100]} size={200} showInLegend={true} />
         </HighchartsChart>
       </div>
     )

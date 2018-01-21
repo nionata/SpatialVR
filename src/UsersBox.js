@@ -57,7 +57,7 @@ class UsersBox extends Component {
     this.loadCommentsFromServer();
 
     if (!this.pollInterval) {
-      //this.pollInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval)
+      this.pollInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval)
     }
   }
 

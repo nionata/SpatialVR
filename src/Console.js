@@ -35,16 +35,16 @@ class Console extends Component {
           </div>
           <div style={Style.canvas}>
             {this.state.selection == 0 &&
-              <ProjectOverview/>
+              <Trends url='http://localhost:3001/api/results' pollInterval={30000}/>
             }
             {this.state.selection == 1 &&
               <ResultsBox url='http://localhost:3001/api/results' pollInterval={1000} />
             }
             {this.state.selection == 2 &&
-              <UsersBox url='http://localhost:3001/api/results' pollInterval={10000} />
+              <UsersBox url='http://localhost:3001/api/results' pollInterval={30000} />
             }
             {this.state.selection == 3 &&
-              <Trends url='http://localhost:3001/api/results' pollInterval={1000}/>
+              <ProjectOverview/>
             }
           </div>
         </div>
