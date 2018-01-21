@@ -30,9 +30,9 @@ class User extends Component {
       float: 'right',
     }
     return (
-      <div style={Style.comment} onMouseOver={this.setSessions} onMouseOut={this.setSessions}>
+      <div style={Style.comment}>
         <h4 style={Style.rightText}>ID: {uid}</h4>
-        <h4>Age: {age}</h4>
+        <h4>Age: {age} <img src={'https://d30y9cdsu7xlg0.cloudfront.net/png/7467-200.png'} style={{marginLeft: '10px'}} height={20} alt={"Eye icon"} onMouseOver={this.setSessions} onMouseOut={this.setSessions} /></h4>
         {this.state.sessions ?
           <h4>Sessions:</h4>
           :
