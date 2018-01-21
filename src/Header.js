@@ -10,8 +10,8 @@ class Header extends Component {
           <Navbar.Brand>
             <span>
               <a href="">
-                <img src={'https://d30y9cdsu7xlg0.cloudfront.net/png/147354-200.png'} height={32} alt="icon" />
-                SpacialVR
+                <img src={'./icon.png'} height={30} alt="icon" />
+                SpatialVR
               </a>
             </span>
           </Navbar.Brand>

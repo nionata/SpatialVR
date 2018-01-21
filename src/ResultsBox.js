@@ -21,6 +21,8 @@ class ResultsBox extends Component {
       });
 
       this.setState({ data: newData });
+
+      console.log(newData);
     })
   }
 
