@@ -11,7 +11,7 @@ class Header extends Component {
             <span>
               <a href="">
                 <img src={'https://d30y9cdsu7xlg0.cloudfront.net/png/147354-200.png'} height={32} alt="icon" />
-                SpacialistVR
+                SpacialVR
               </a>
             </span>
           </Navbar.Brand>

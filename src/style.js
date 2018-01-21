@@ -67,12 +67,27 @@ const style = {
     color:'red'
   },
   pane: {
-    paddingTop: '50px',
+    marginTop: '50px',
   },
   sideBar: {
-    backgroundColor: '#FF5722',
+    backgroundColor: '#2196F3',
     width: '20%',
-    height: '100vh',
+    height: '94vh',
+    textAlign: 'center',
+    padding: '15px',
+  },
+  sideBarButton: {
+    boxShadow: '0px 0px 5px #1976D2',
+    padding: '10px',
+    color: 'white',
+    marginBottom: '10px',
+  },
+  sideBarButtonSelected: {
+    padding: '10px',
+    color: 'white',
+    marginBottom: '10px',
+    backgroundColor: '#1976D2'
   }
+
 }
 module.exports = style;
