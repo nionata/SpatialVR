@@ -49,7 +49,7 @@ class User extends Component {
                   width: ((result.avgTime/100)+10)+'vh',
                   padding: '0px',
                   marginLeft: '20px',
-                }}>{(Math.floor((result.avgTime/1000) * 100))/100}</h4>
+                }}>{(Math.floor((result.avgTime/1000) * 100))/100} s</h4>
               </div>
             )
           })
