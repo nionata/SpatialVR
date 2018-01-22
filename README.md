@@ -15,3 +15,4 @@ When you run the above script, it will start up both a client react server and a
 * Node server: localhost:3001
   * The RESTful api will run off this server at: localhost:3001/api/results
     * You can hit these endpoints with GET and POST requests
+  * There is also a socket server running at: localhost:8000
