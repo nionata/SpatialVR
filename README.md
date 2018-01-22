@@ -1,3 +1,10 @@
+# SpatialVR - SwampHacks 2018
+## VR experience and fullstack web app for helping people with spatial hearing disorders
+### Pize Winning Project: Home Depot - Entrepreneurial Spirit
+
+* Checkout out our project's devpost: https://swamphacks-iv.devpost.com/
+* This is the web app, the VR experience can be found here: https://github.com/sourabh2k15/spatialHearing
+
 To run the client and server on your local device:
 1. Clone this repo
 2. Run 'npm install'
