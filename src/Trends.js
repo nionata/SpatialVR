@@ -4,7 +4,6 @@ import {
 } from 'react-jsx-highcharts';
 import Highcharts from 'highcharts';
 import axios from 'axios';
-import Style from './style';
 
 class Trends extends Component {
   constructor(props) {

@@ -21,7 +21,7 @@ class Result extends Component {
   }
 
   render() {
-    const {avgTime, time, uid, tid} = this.props;
+    const {avgTime, time, uid} = this.props;
     var styless = {
       backgroundColor: '#FF5722',
       color: '#FFFFFF',

@@ -22,13 +22,6 @@ class User extends Component {
 
   render() {
     const {sessions, age, uid} = this.props;
-    var styless = {
-      backgroundColor: '#FF5722',
-      color: '#FFFFFF',
-      width: ((sessions[0].avgTime/100)+10)+'vh',
-      padding: '0px',
-      float: 'right',
-    }
     return (
       <div style={Style.comment}>
         <h4 style={Style.rightText}>ID: {uid}</h4>

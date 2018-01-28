@@ -34,16 +34,16 @@ class Console extends Component {
             <SideNav onClick={this.onClick}/>
           </div>
           <div style={Style.canvas}>
-            {this.state.selection == 0 &&
+            {this.state.selection === 0 &&
               <Trends url='http://localhost:3001/api/results' pollInterval={30000}/>
             }
-            {this.state.selection == 1 &&
+            {this.state.selection === 1 &&
               <ResultsBox url='http://localhost:3001/api/results' pollInterval={1000} />
             }
-            {this.state.selection == 2 &&
+            {this.state.selection === 2 &&
               <UsersBox url='http://localhost:3001/api/results' pollInterval={30000} />
             }
-            {this.state.selection == 3 &&
+            {this.state.selection === 3 &&
               <ProjectOverview/>
             }
           </div>
